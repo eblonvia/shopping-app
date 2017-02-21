@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { styles } from '../../assets/css/index';
-
+import {PasswordInput} from '../components/';
 
 import {
   Text,
@@ -11,9 +11,12 @@ import {
 } from 'react-native';
 
 const inlineStyles = {
-  illustration_image: {
-
-  }, facebook_button: {
+  form_divider: {
+    color: "#886d5c",
+      textAlign: "center",
+      fontSize: 15
+  },
+  facebook_button: {
     margin: 5,
     height: 60,
     lineHeight: 55,
@@ -32,16 +35,16 @@ const inlineStyles = {
     fontSize: 18,
     backgroundColor: "#FF984C",
     color: "#FFF"
-  } 
+  }
 };
 
 export default class Login extends Component {
   render() {
     return (
-      <View>
-        <View className="row row-bottom images-row">
-          <View className="col">
-            <View className="illustration-container">
+      <View style={inlineStyles.container}>
+        <View style={inlineStyles.container} className="row row-bottom images-row">
+          <View  style={inlineStyles.container} className="col">
+            <View style={inlineStyles.container} className="illustration-container">
               <Image className="illustration-image" source={require("../../assets/img/auth/login_illustration.png")} />
             </View>
           </View>
@@ -52,12 +55,11 @@ export default class Login extends Component {
             <TouchableHighlight className="button button-block facebook_button">
               <Text style={inlineStyles.facebook_button} className="facebook_button">Log in with Facebook</Text>
             </TouchableHighlight>
-            <Text className="form-Viewider">or</Text>
+            <Text style={inlineStyles.form_divider}>or</Text>
             <View name="login_form" className="form-container" novalidate>
               <View className="input-list list list-inset">
-                <TextInput value="username" style={{height: 40, borderColor: 'gray', borderWidth: 1}}/>
-                <TextInput value="password" style={{height: 40, borderColor: 'gray', borderWidth: 1}}/>
-                <Text ng-show="error" className="message error">{'error'}</Text>
+                <TextInput value="username" style={{padding: 5, height: 40, borderColor: 'gray', borderWidth: 1}}/>
+                <PasswordInput value="password" />
                 <TouchableHighlight 
                   className="button button-block auth-action-button">
                   <Text style={inlineStyles.auth_action_button}>Log in</Text>
